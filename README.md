@@ -3,9 +3,9 @@
 ## Install 
 
 ```
-$ npm install electron-prebuilt -g
-$ npm install gulp jspm -g
+$ npm install gulp jspm electron-prebuilt -g
 $ npm install
+$ jspm install
 ```
 
 ## Run
