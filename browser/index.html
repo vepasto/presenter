@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Electron / Angular / ES6 Sample </title>
+  <title>Presenter</title>
+  <link rel="stylesheet" href="jspm_packages/github/angular/bower-material@0.9.8/angular-material.css">
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
     System.import('components/app/module');
   </script>
 </head>
-<body>
-<div ng-app="app" ng-controller="AppController as app">
-  <nav>
-    <a ng-link="welcome">Welcome</a>
-    <a ng-link="screens">Screens</a>
-  </nav>
-  <div ng-outlet></div>
+<body layout="column">
+<div ng-app="app" ng-controller="AppController as app" layout="column" layout-fill>
+  <md-toolbar class="md-default-theme">
+    <div class="md-toolbar-tools">
+      <md-button aria-label="Welcome" ng-link="welcome">
+        Welcome
+      </md-button>
+      <md-button aria-label="Screens" ng-link="screens">
+        Screens
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content ng-outlet></md-content>
 </div>
 </body>
 </html>

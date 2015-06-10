@@ -1,5 +1,6 @@
 import angular from 'angular';
 import ngNewRouter from 'angular-new-router';
+import ngMaterial from 'angular-material';
 
 import {
   AppController
@@ -12,6 +13,7 @@ import '../screens/module';
 angular
   .module('app', [
     'ngNewRouter',
+    'ngMaterial',
     'app.welcome',
     'app.screens'
   ])
