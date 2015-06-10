@@ -4,10 +4,10 @@ import ngNewRouter from 'angular-new-router';
 import {
   AppController
   }
-  from './controller';
+  from './controllers/app.controller';
 
-import './welcome/module';
-import './screens/module';
+import '../welcome/module';
+import '../screens/module';
 
 angular
   .module('app', [

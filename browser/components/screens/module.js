@@ -3,7 +3,7 @@ import angular from 'angular';
 import {
   ScreensController
   }
-  from './controller';
+  from './controllers/screens.controller';
 
 angular
   .module('app.screens', [])

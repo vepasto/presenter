@@ -3,7 +3,7 @@ import angular from 'angular';
 import {
   WelcomeController
   }
-  from './controller';
+  from './controllers/welcome.controller';
 
 angular
   .module('app.welcome', [])
