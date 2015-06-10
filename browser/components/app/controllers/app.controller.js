@@ -5,7 +5,8 @@ class AppController {
     $router.config([
       { path: '/', redirectTo: '/welcome' },
       { path: '/welcome', component: 'welcome' },
-      { path: '/screens', component: 'screens' }
+      { path: '/screens', component: 'screens' },
+      { path: '/help', component: 'help' }
     ]);
   }
 }
