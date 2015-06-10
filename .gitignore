@@ -1,0 +1,17 @@
+### Node template
+# Logs
+logs
+*.log
+
+# node dependency directory
+node_modules
+
+# Ide configs
+.idea
+
+jspm_packages
+.DS_Store
+dist
+
+
+
