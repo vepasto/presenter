@@ -3,6 +3,7 @@
 <head>
   <title>Presenter</title>
   <link rel="stylesheet" href="jspm_packages/github/angular/bower-material@0.9.8/angular-material.css">
+  <link rel="stylesheet" href="jspm_packages/npm/font-awesome@4.3.0/css/font-awesome.min.css">
   <script src="jspm_packages/system.js"></script>
   <script src="config.js"></script>
   <script>
@@ -13,11 +14,12 @@
 <div ng-app="app" ng-controller="AppController as app" layout="column" layout-fill>
   <md-toolbar class="md-default-theme">
     <div class="md-toolbar-tools">
+      <i class="fa fa-diamond fa-4x"></i>
       <md-button aria-label="Welcome" ng-link="welcome">
-        Welcome
+        <i class="fa fa-home"></i> Welcome
       </md-button>
       <md-button aria-label="Screens" ng-link="screens">
-        Screens
+        <i class="fa fa-desktop"></i> Screens
       </md-button>
     </div>
   </md-toolbar>

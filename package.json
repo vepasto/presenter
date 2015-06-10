@@ -24,7 +24,8 @@
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.4.0",
       "angular-material": "github:angular/bower-material@^0.9.8",
-      "angular-new-router": "github:CodeDistillery/router@0.5.4"
+      "angular-new-router": "github:CodeDistillery/router@0.5.4",
+      "font-awesome": "npm:font-awesome@4.3.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",
