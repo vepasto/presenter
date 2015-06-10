@@ -13,5 +13,6 @@ jspm_packages
 .DS_Store
 dist
 
+app/main.js
 
 
