@@ -42,7 +42,7 @@ class ScreensService {
   constructor(_$rootScope_){
     this.$rootScope = _$rootScope_;
     this.screens = {};
-    this.newScreen();
+    // this.newScreen();
   }
 }
 
