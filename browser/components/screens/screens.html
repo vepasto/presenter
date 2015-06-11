@@ -1,6 +1,54 @@
+<style>
+  /* The starting CSS styles for the enter animation */
+  .fade.ng-enter {
+    transition: 0.5s linear all;
+    opacity: 0;
+  }
+
+  /* The finishing CSS styles for the enter animation */
+  .fade.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+
+  .fade.ng-leave {
+    transition: 0.5s linear all;
+    opacity: 1;
+  }
+
+  .fade.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+</style>
 <section>
   <md-subheader>Screens</md-subheader>
   <md-content layout-padding>
     <div>This is the page where you can handle screens</div>
+    <md-button ng-click="screens.Screens.newScreen()">
+      <i class="fa fa-plus"></i> New Screen
+    </md-button>
+
+    <md-grid-list
+      md-cols-sm="1" md-cols-md="3" md-cols-gt-md="6"
+      md-row-height-gt-md="1:1" md-row-height="4:3"
+      md-gutter="8px" md-gutter-gt-sm="4px">
+      <md-grid-tile ng-repeat="screen in screens.Screens.screens"
+                    class="fade"
+                    md-rowspan="1"
+                    md-colspan="1"
+                    md-colspan-sm="1"
+                    ng-class="green"
+                    style="background: #b9f6ca;">
+        <md-grid-tile-header>
+          <h3>Screen {{ $index+1 }}</h3>
+        </md-grid-tile-header>
+        <md-content style="background: transparent;">
+          aaa
+        </md-content>
+        <md-grid-tile-footer>
+          <md-button ng-click="screen.close()" aria-label="Close the Screen" class="md-icon-button"><i
+            class="fa fa-trash-o"></i></md-button>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+    </md-grid-list>
   </md-content>
 </section>

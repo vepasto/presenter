@@ -1,8 +1,9 @@
 'use strict';
 
 class ScreensController {
-  constructor(){
-
+  constructor(Screens){
+    var vm = this;
+    vm.Screens = Screens;
   }
 }
 export {

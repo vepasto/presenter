@@ -1,8 +1,6 @@
 let app = require('app');
 let BrowserWindow = require('browser-window');
 
-require('crash-reporter').start();
-
 var mainWindow = null;
 
 app.on('window-all-closed', () =>{
