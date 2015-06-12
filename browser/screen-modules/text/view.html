@@ -1,0 +1,8 @@
+<md-content
+  layout-align="{{textView.Text.data.align.horizontal || 'center'}} {{textView.Text.data.align.vertical || 'center'}}"
+  ng-controller="TextController as textView"
+  layout flex
+  layout-padding>
+
+  <h3 style="white-space: pre-wrap; margin:0;" ng-style="textView.Text.data.style" ng-bind="textView.Text.data.text"></h3>
+</md-content>

@@ -6,6 +6,7 @@ class AppController {
       { path: '/', redirectTo: '/welcome' },
       { path: '/welcome', component: 'welcome' },
       { path: '/screens', component: 'screens' },
+      { path: '/screen-text', component: 'screenText', as:'screen-text' },
       { path: '/help', component: 'help' }
     ]);
   }

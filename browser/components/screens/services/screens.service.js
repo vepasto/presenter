@@ -24,6 +24,12 @@ class Screen {
 }
 
 class ScreensService {
+  emitToAll(path, message){
+    Object.keys(this.screens).forEach((key) =>{
+      this.screens[key].browserWindow.send(path, message);;
+    });
+  }
+
   newScreen(id = (new Date().getTime()).toString()){
     let onCloseScreenCallback = () =>{
 

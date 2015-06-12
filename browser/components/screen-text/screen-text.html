@@ -1,0 +1,92 @@
+<md-content layout-padding>
+  <style>
+    /* The starting CSS styles for the enter animation */
+    .fade.ng-enter {
+      transition: 0.5s linear all;
+      opacity: 0;
+    }
+
+    /* The finishing CSS styles for the enter animation */
+    .fade.ng-enter.ng-enter-active {
+      opacity: 1;
+    }
+
+    .fade.ng-leave {
+      transition: 0.5s linear all;
+      opacity: 1;
+    }
+
+    .fade.ng-leave.ng-leave-active {
+      opacity: 0;
+    }
+  </style>
+  <md-content layout-padding>
+    <div layout="column" layout-gt-sm="row" layout-align="start start" layout-align-gt-sm="start end">
+      <md-input-container flex=50>
+        <label>Text</label>
+        <textarea aria-label="Screen Text" ng-model="screenText.data.text" rows="1"></textarea>
+      </md-input-container>
+      <div>
+        <md-select placeholder="Horizontal" ng-model="screenText.data.align.horizontal">
+          <md-option value="start" class="md-primary" aria-label="Start"> Left</md-option>
+          <md-option value="center" class="md-primary" aria-label="Center"> Center</md-option>
+          <md-option value="end" class="md-primary" aria-label="End"> Right</md-option>
+        </md-select>
+      </div>
+      <div>
+        <md-select placeholder="Vertical" ng-model="screenText.data.align.vertical">
+          <md-option value="start" class="md-primary" aria-label="Start"> Top</md-option>
+          <md-option value="center" class="md-primary" aria-label="Center"> Middle</md-option>
+          <md-option value="end" class="md-primary" aria-label="End"> Bottom</md-option>
+        </md-select>
+      </div>
+    </div>
+    <md-button
+      aria-label="Show On Screens"
+      class="md-primary md-raised"
+      ng-click="screenText.showText()">
+      Show On Screens!
+    </md-button>
+  </md-content>
+
+
+  <div layout="row" layout-align="start center">
+    <md-subheader>
+      <span><i class="fa fa-clock-o"></i> History</span>
+    </md-subheader>
+    <span flex></span>
+    <md-button ng-click="screenText.ScreenText.resetLog()" aria-label="Reset Log">
+      <i class="fa fa-trash-o"></i> Clear
+      <md-tooltip>
+        Clear History
+      </md-tooltip>
+    </md-button>
+
+  </div>
+  <md-content class="md-default-theme">
+    <md-card style="cursor:pointer" class="fade"
+             ng-repeat="logItem in screenText.ScreenText.log track by logItem.timestamp">
+      <md-card-content layout-sm="column" layout-gt-sm="row" layout="center center">
+        <p ng-bind="logItem.text" style="white-space: pre-wrap; margin:0;"></p>
+        <span flex></span>
+        <md-select placeholder="Horizontal" ng-model="logItem.align.horizontal">
+          <md-option value="start" class="md-primary" aria-label="Start"> Left</md-option>
+          <md-option value="center" class="md-primary" aria-label="Center"> Center</md-option>
+          <md-option value="end" class="md-primary" aria-label="End"> Right</md-option>
+        </md-select>
+        <md-select placeholder="Vertical" ng-model="logItem.align.vertical">
+          <md-option value="start" class="md-primary" aria-label="Start"> Top</md-option>
+          <md-option value="center" class="md-primary" aria-label="Center"> Middle</md-option>
+          <md-option value="end" class="md-primary" aria-label="End"> Bottom</md-option>
+        </md-select>
+        <md-button ng-click="screenText.showText(logItem)" class="" aria-label="Show On Screens">
+          <md-tooltip>
+            Show On Screens
+          </md-tooltip>
+          <i class="fa fa-desktop fa-2x"></i>
+        </md-button>
+      </md-card-content>
+    </md-card>
+  </md-content>
+
+</md-content>

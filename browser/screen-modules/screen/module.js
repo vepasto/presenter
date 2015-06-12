@@ -1,6 +1,8 @@
 import angular from 'angular';
 import ngMaterial from 'angular-material';
 
+import '../text/module';
+
 import {
   ScreenController
   }
@@ -8,7 +10,8 @@ import {
 
 
 angular
-  .module('app', [
-    'ngMaterial'
+  .module('screen', [
+    'ngMaterial',
+    'screen.text'
   ])
   .controller('ScreenController', ScreenController);

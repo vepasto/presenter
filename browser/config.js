@@ -16,6 +16,7 @@ System.config({
 System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.4.0",
+    "angular-local-storage": "github:grevory/angular-local-storage@0.1.4",
     "angular-material": "github:angular/bower-material@0.9.8",
     "angular-new-router": "github:CodeDistillery/router@0.5.4",
     "babel": "npm:babel-core@5.5.6",
