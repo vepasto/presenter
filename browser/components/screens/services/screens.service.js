@@ -8,10 +8,15 @@ class Screen {
     this.onClose();
   }
 
+  ping(message = 'ping'){
+    this.browserWindow.webContents.send('ping-message', message);
+  }
+
   constructor(onClose){
     this.onClose = onClose;
     this.browserWindow = new BrowserWindow({ width: 800, height: 600 });
-    this.browserWindow.loadUrl('file://' + __dirname + '/../browser/index.html');
+    this.browserWindow.loadUrl('file://' + __dirname + '/../browser/screen-index.html', { console: true });
+    this.browserWindow.openDevTools();
     this.browserWindow.on('closed', () =>{
       this.onClose();
     });
