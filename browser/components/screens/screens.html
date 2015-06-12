@@ -36,17 +36,20 @@
                     md-rowspan="1"
                     md-colspan="1"
                     md-colspan-sm="1"
-                    ng-class="green"
                     style="background: #b9f6ca;">
         <md-grid-tile-header>
           <h3>Screen {{ $index+1 }}</h3>
         </md-grid-tile-header>
         <md-content style="background: transparent;">
-          aaa
+          <i class="fa fa-desktop fa-2x"></i>
         </md-content>
         <md-grid-tile-footer>
-          <md-button ng-click="screen.close()" aria-label="Close the Screen" class="md-icon-button"><i
-            class="fa fa-trash-o"></i></md-button>
+          <md-button ng-click="screen.close()" aria-label="Close the Screen" class="md-icon-button">
+            <i class="fa fa-trash-o"></i>
+          </md-button>
+          <md-button ng-click="screen.ping()" aria-label="Ping Screen" class="md-icon-button">
+            <i class="fa fa-bell-o"></i>
+          </md-button>
         </md-grid-tile-footer>
       </md-grid-tile>
     </md-grid-list>
