@@ -12,13 +12,18 @@ class Screen {
     this.browserWindow.webContents.send('ping-message', message);
   }
 
-  constructor(onClose){
+  constructor(onClose, browserWindow){
     this.onClose = onClose;
-    this.browserWindow = new BrowserWindow({ width: 800, height: 600 });
-    this.browserWindow.loadUrl('file://' + __dirname + '/../browser/screen-index.html', { console: true });
-    this.browserWindow.openDevTools();
-    this.browserWindow.on('closed', () =>{
-      this.onClose();
+    if(browserWindow) {
+      this.browserWindow = browserWindow;
+    } else {
+      this.browserWindow = new BrowserWindow({ width: 800, height: 600 });
+      this.browserWindow.loadUrl('file://' + __dirname + '/../browser/screen-index.html', { console: true });
+      this.browserWindow.openDevTools();
+    }
+    this.browserWindow.removeAllListeners('close');
+    this.browserWindow.on('close', () =>{
+      this.onClose(this.browserWindow.id);
     });
   }
 }
@@ -26,12 +31,12 @@ class Screen {
 class ScreensService {
   emitToAll(path, message){
     Object.keys(this.screens).forEach((key) =>{
-      this.screens[key].browserWindow.send(path, message);;
+      this.screens[key].browserWindow.send(path, message);
     });
   }
 
-  newScreen(id = (new Date().getTime()).toString()){
-    let onCloseScreenCallback = () =>{
+  newScreen(browserWindow = null){
+    let onCloseScreenCallback = (id) =>{
 
       let removeScreen = () =>{
         if(this.screens.hasOwnProperty(id)) {
@@ -46,14 +51,21 @@ class ScreensService {
         removeScreen();
       }
     };
-
-    this.screens[id] = new Screen(onCloseScreenCallback);
+    let newScreen = new Screen(onCloseScreenCallback, browserWindow);
+    this.screens[newScreen.browserWindow.id] = newScreen;
   }
 
   constructor(_$rootScope_){
     this.$rootScope = _$rootScope_;
     this.screens = {};
-    // this.newScreen();
+
+    let screens = BrowserWindow
+      .getAllWindows()
+      .slice(1);
+
+    screens.forEach((browserWindow)=>{
+      this.newScreen(browserWindow);
+    });
   }
 }
 

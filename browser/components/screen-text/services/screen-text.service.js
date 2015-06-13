@@ -11,7 +11,7 @@ class ScreenTextService {
 
   saveLog(originalData){
     let data = angular.copy(originalData);
-    
+
     data.timestamp = new Date().getTime();
     this.log = this.localStorageService.get('ScreenText:log') || [];
     this.log.unshift(data);
